@@ -1,0 +1,37 @@
+//commands
+
+kubectl get pods
+kubectl get deployments
+kubectl describe pod {podname}
+kubectl apply -f {filename}
+kubectl set image {objecttype}/{objectname} {containername}={imagename}
+=> kubectl set image deployment/client-deployment client=stephengrider/multi-client:v5
+
+kubectl delete deployment {deploymentname}
+kubectl delete service {servicename}
+kubectl get storageclass
+kubectl get pv
+kubectl get pvc
+kubectl create secret generic pgpassword --from-literal PGPASSWORD=12345asdf  //imperative command
+kubectl get secrets
+
+
+
+
+// References:
+https://github.com/kubernetes/ingress-nginx
+
+
+// Points:
+
+- setup of ingress-ngnix changes depending on your environment (local,azure,aws,gcp)
+
+- In Kubernetes, an ingress lets us route traffic from outside the cluster to one or more services inside the cluster. Typically, the ingress works as a single point of entry for all incoming traffic.
+
+- As with most Kubernetes objects, an ingress requires an associated controller to manage it. It does not include an ingress controller by default. Most cloud platforms provide their own ingress controllers, but there are also plenty of open-source options to choose from. Perhaps the most popular is the nginx ingress controller.
+
+- Load Balancers in Kubernetes have quite a bit of overlap with ingresses. This is because they are primarily used to expose services to the internet. Rather than a standalone object like an ingress, a load balancer is just an extension of a service.
+- load balancers are defined per service, they can only route to a single service. This is different from an ingress, which has the ability to route to multiple services inside the cluster.
+
+Also, keep in mind that regardless of the provider, using an external load balancer will typically come with additional costs. This is because, unlike ingresses and their controllers, external load balancers exist outside of the Kubernetes cluster. Because of this, most cloud providers will charge for the additional resource usage beyond the cluster itself.
+
