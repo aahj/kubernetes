@@ -35,3 +35,6 @@ https://github.com/kubernetes/ingress-nginx
 
 Also, keep in mind that regardless of the provider, using an external load balancer will typically come with additional costs. This is because, unlike ingresses and their controllers, external load balancers exist outside of the Kubernetes cluster. Because of this, most cloud providers will charge for the additional resource usage beyond the cluster itself.
 
+- RBAC (role based access control) is who can access and modify resources on kubernetes cluster
+- Helm is the package manager for Kubernetes
+
